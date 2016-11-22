@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	android:paddingBottom="@dimen/activity_vertical_margin" tools:context="pintapp.pint.com.pint.LoginActivity">
+
+	<EditText android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:inputType="textEmailAddress"
+		android:ems="10" android:id="@+id/loginTextEmail" android:hint="E-mail"
+		android:textColorHint="#ff95ba" android:textColor="#ff0000"
+		android:layout_alignParentTop="true" android:layout_alignLeft="@+id/loginTextPassword"
+		android:layout_alignStart="@+id/loginTextPassword"
+		android:layout_marginTop="39dp" />
+
+	<EditText android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:inputType="textPassword"
+		android:ems="10" android:id="@+id/loginTextPassword"
+		android:textColor="#ff0000" android:textColorHint="#ff95ba"
+		android:hint="Password" android:layout_marginTop="20dp"
+		android:layout_below="@+id/loginTextEmail"
+		android:layout_centerHorizontal="true" />
+
+	<Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Login"
+		android:id="@+id/loginButtonLogin" android:layout_marginTop="40dp"
+		android:background="#ff0000" android:textColor="#ffffff"
+		android:layout_below="@+id/loginTextPassword"
+		android:layout_centerHorizontal="true" android:clickable="true" />
+</RelativeLayout>

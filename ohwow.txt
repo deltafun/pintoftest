@@ -1,0 +1,231 @@
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/MainActivity.java:7: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.DefaultTokenProvider;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/MainActivity.java:8: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.ITokenProvider;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/MainActivity.java:11: error: cannot find symbol
+    private ITokenProvider tokenProvider;
+            ^
+  symbol:   class ITokenProvider
+  location: class MainActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/MainActivity.java:17: error: cannot find symbol
+    public MainActivity(ITokenProvider tokenProvider) {
+                        ^
+  symbol:   class ITokenProvider
+  location: class MainActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/LoginActivity.java:15: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.DefaultTokenProvider;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/LoginActivity.java:16: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.ITokenProvider;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/LoginActivity.java:20: error: cannot find symbol
+    private ITokenProvider tokenProvider;
+            ^
+  symbol:   class ITokenProvider
+  location: class LoginActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/LoginActivity.java:26: error: cannot find symbol
+    public LoginActivity(ITokenProvider tokenProvider) {
+                         ^
+  symbol:   class ITokenProvider
+  location: class LoginActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:25: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.DefaultPintAPI;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:26: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.DefaultTokenProvider;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:27: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.IPintAPI;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:28: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.JSONAdapter;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:124: error: cannot find symbol
+    private class DetailAdapter extends JSONAdapter {
+                                        ^
+  symbol:   class JSONAdapter
+  location: class DetailedActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:37: error: cannot find symbol
+    IPintAPI pintAPI;
+    ^
+  symbol:   class IPintAPI
+  location: class DetailedActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:38: error: cannot find symbol
+    IPintAPI pintAPI2;
+    ^
+  symbol:   class IPintAPI
+  location: class DetailedActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:36: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.DefaultPintAPI;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:37: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.DefaultTokenProvider;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:38: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.IPintAPI;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:39: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.ITokenProvider;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:40: error: package pintapp.pint.com.pint.PintNetworking does not exist
+import pintapp.pint.com.pint.PintNetworking.JSONAdapter;
+                                           ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:44: error: cannot find symbol
+    private ITokenProvider tokenProvider;
+            ^
+  symbol:   class ITokenProvider
+  location: class HomeActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:58: error: cannot find symbol
+    public HomeActivity(ITokenProvider tokenProvider, LocationListener locationListener) {
+                        ^
+  symbol:   class ITokenProvider
+  location: class HomeActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:204: error: cannot find symbol
+        JSONAdapter jsonAdapter;
+        ^
+  symbol:   class JSONAdapter
+  location: class ListFragment
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:205: error: cannot find symbol
+        IPintAPI pintAPI;
+        ^
+  symbol:   class IPintAPI
+  location: class ListFragment
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/MainActivity.java:29: error: cannot find symbol
+            this.tokenProvider = new DefaultTokenProvider(this);
+                                     ^
+  symbol:   class DefaultTokenProvider
+  location: class MainActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/LoginActivity.java:37: error: cannot find symbol
+            this.tokenProvider = new DefaultTokenProvider(this);
+                                     ^
+  symbol:   class DefaultTokenProvider
+  location: class LoginActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:71: error: cannot find symbol
+            detailAdapter.random = new JSONObject();
+                         ^
+  symbol:   variable random
+  location: variable detailAdapter of type DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:73: error: cannot find symbol
+            detailAdapter.random = jsonObject;
+                         ^
+  symbol:   variable random
+  location: variable detailAdapter of type DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:80: error: no suitable method found for setAdapter(DetailedActivity.DetailAdapter)
+        listView.setAdapter(detailAdapter);
+                ^
+    method AdapterView.setAdapter(ListAdapter) is not applicable
+      (argument mismatch; DetailedActivity.DetailAdapter cannot be converted to ListAdapter)
+    method AbsListView.setAdapter(ListAdapter) is not applicable
+      (argument mismatch; DetailedActivity.DetailAdapter cannot be converted to ListAdapter)
+    method ListView.setAdapter(ListAdapter) is not applicable
+      (argument mismatch; DetailedActivity.DetailAdapter cannot be converted to ListAdapter)
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:86: error: cannot find symbol
+                pintAPI = new DefaultPintAPI();
+                              ^
+  symbol:   class DefaultPintAPI
+  location: class DetailedActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:98: error: cannot find symbol
+                            detailAdapter.notifyDataSetChanged();
+                                         ^
+  symbol:   method notifyDataSetChanged()
+  location: variable detailAdapter of type DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:106: error: cannot find symbol
+            pintAPI.GetBloodDriveUserNotifications(detailAdapter, new DefaultTokenProvider(this), bloodDriveId);
+                                                                      ^
+  symbol:   class DefaultTokenProvider
+  location: class DetailedActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:111: error: cannot find symbol
+                    pintAPI2 = new DefaultPintAPI();
+                                   ^
+  symbol:   class DefaultPintAPI
+  location: class DetailedActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:114: error: cannot find symbol
+                pintAPI2.GetBloodDrive(detailAdapter, new DefaultTokenProvider(this), bloodDriveId);
+                                                          ^
+  symbol:   class DefaultTokenProvider
+  location: class DetailedActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:130: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:132: error: cannot find symbol
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                                                             ^
+  symbol:   variable context
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:135: error: cannot find symbol
+            if(random == null) {
+               ^
+  symbol:   variable random
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:136: error: cannot find symbol
+                random = new JSONObject();
+                ^
+  symbol:   variable random
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:147: error: cannot find symbol
+                            textView.setText(random.getString("title"));
+                                             ^
+  symbol:   variable random
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:165: error: cannot find symbol
+                            textView.setText(random.getString("address"));
+                                             ^
+  symbol:   variable random
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:175: error: cannot find symbol
+                            textView.setText(random.getString("startTime") + " - " + random.getString("endTime"));
+                                             ^
+  symbol:   variable random
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:175: error: cannot find symbol
+                            textView.setText(random.getString("startTime") + " - " + random.getString("endTime"));
+                                                                                     ^
+  symbol:   variable random
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:185: error: cannot find symbol
+                            textView.setText(random.getString("description"));
+                                             ^
+  symbol:   variable random
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/DetailedActivity.java:194: error: cannot find symbol
+                JSONObject jsonObject = jsonList.get(position - detailedView.length);
+                                        ^
+  symbol:   variable jsonList
+  location: class DetailedActivity.DetailAdapter
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:72: error: cannot find symbol
+            tokenProvider = new DefaultTokenProvider(this);
+                                ^
+  symbol:   class DefaultTokenProvider
+  location: class HomeActivity
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:210: error: cannot find symbol
+            this.pintAPI = new DefaultPintAPI();
+                               ^
+  symbol:   class DefaultPintAPI
+  location: class ListFragment
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:230: error: cannot find symbol
+            jsonAdapter = new JSONAdapter(getContext(), pintObjects, pintType);
+                              ^
+  symbol:   class JSONAdapter
+  location: class ListFragment
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:257: error: cannot find symbol
+            DefaultTokenProvider defaultTokenProvider = new DefaultTokenProvider(getContext());
+            ^
+  symbol:   class DefaultTokenProvider
+  location: class ListFragment
+/home/aurora/Documents/cen5076-project/ProjectArtifacts/Pint-master-code-updated/Mobile/Pint/app/src/main/java/pintapp/pint/com/pint/HomeActivity.java:257: error: cannot find symbol
+            DefaultTokenProvider defaultTokenProvider = new DefaultTokenProvider(getContext());
+                                                            ^
+  symbol:   class DefaultTokenProvider
+  location: class ListFragment
+49 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.

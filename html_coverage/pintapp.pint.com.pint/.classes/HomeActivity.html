@@ -1,0 +1,482 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: HomeActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">pintapp.pint.com.pint</a> ]
+</div>
+
+<h1>Coverage Summary for Class: HomeActivity (pintapp.pint.com.pint)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HomeActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    62.5%
+  </span>
+  <span class="absValue">
+    (5/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    55.8%
+  </span>
+  <span class="absValue">
+    (29/ 52)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">HomeActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    16.7%
+  </span>
+  <span class="absValue">
+    (1/ 6)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">HomeActivity$DefaultLocationListener</td>
+<td class="coverageStat">
+  <span class="percent">
+    20%
+  </span>
+  <span class="absValue">
+    (1/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    11.1%
+  </span>
+  <span class="absValue">
+    (1/ 9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">HomeActivity$ListFragment</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80.8%
+  </span>
+  <span class="absValue">
+    (21/ 26)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">HomeActivity$ListFragment$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    10%
+  </span>
+  <span class="absValue">
+    (1/ 10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">HomeActivity$ListPagerAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/ 12)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+  <span class="absValue">
+    (15/ 25)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    56.5%
+  </span>
+  <span class="absValue">
+    (65/ 115)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package pintapp.pint.com.pint;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.Manifest;
+<i>4</i>&nbsp;import android.content.Context;
+<i>5</i>&nbsp;import android.content.Intent;
+<i>6</i>&nbsp;import android.content.pm.PackageManager;
+<i>7</i>&nbsp;import android.location.Address;
+<i>8</i>&nbsp;import android.location.Geocoder;
+<i>9</i>&nbsp;import android.location.Location;
+<i>10</i>&nbsp;import android.location.LocationListener;
+<i>11</i>&nbsp;import android.location.LocationManager;
+<i>12</i>&nbsp;import android.os.Build;
+<i>13</i>&nbsp;import android.os.Bundle;
+<i>14</i>&nbsp;import android.support.design.widget.FloatingActionButton;
+<i>15</i>&nbsp;import android.support.design.widget.TabLayout;
+<i>16</i>&nbsp;import android.support.v4.app.FragmentManager;
+<i>17</i>&nbsp;import android.support.v4.app.FragmentPagerAdapter;
+<i>18</i>&nbsp;import android.support.v4.view.ViewPager;
+<i>19</i>&nbsp;import android.support.v7.app.AppCompatActivity;
+<i>20</i>&nbsp;import android.support.v7.widget.Toolbar;
+<i>21</i>&nbsp;import android.util.Log;
+<i>22</i>&nbsp;import android.view.LayoutInflater;
+<i>23</i>&nbsp;import android.view.Menu;
+<i>24</i>&nbsp;import android.view.MenuItem;
+<i>25</i>&nbsp;import android.view.View;
+<i>26</i>&nbsp;import android.view.ViewGroup;
+<i>27</i>&nbsp;import android.widget.AdapterView;
+<i>28</i>&nbsp;import android.widget.ListView;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;import org.json.JSONException;
+<i>31</i>&nbsp;import org.json.JSONObject;
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;import java.util.ArrayList;
+<i>34</i>&nbsp;import java.util.List;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;import pintapp.pint.com.pint.PintNetworking.DefaultPintAPI;
+<i>37</i>&nbsp;import pintapp.pint.com.pint.PintNetworking.DefaultTokenProvider;
+<i>38</i>&nbsp;import pintapp.pint.com.pint.PintNetworking.IPintAPI;
+<i>39</i>&nbsp;import pintapp.pint.com.pint.PintNetworking.ITokenProvider;
+<i>40</i>&nbsp;import pintapp.pint.com.pint.PintNetworking.JSONAdapter;
+<i>41</i>&nbsp;
+<b class="nc"><i>42</i>&nbsp;public class HomeActivity extends AppCompatActivity {</b>
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    private ITokenProvider tokenProvider;
+<b class="fc"><i>45</i>&nbsp;    private LocationListener mLocationListener = null;</b>
+<i>46</i>&nbsp;    private double latitude;
+<i>47</i>&nbsp;    private double longitude;
+<i>48</i>&nbsp;    private String city;
+<i>49</i>&nbsp;    private String state;
+<i>50</i>&nbsp;    ViewPager mViewPager;
+<i>51</i>&nbsp;    ListPagerAdapter listPagerAdapter;
+<b class="fc"><i>52</i>&nbsp;    String[] tabs = {&quot;Blood Drives&quot;, &quot;Notifications&quot;};</b>
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    public HomeActivity() {
+<b class="fc"><i>55</i>&nbsp;        super();</b>
+<b class="fc"><i>56</i>&nbsp;    }</b>
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    public HomeActivity(ITokenProvider tokenProvider, LocationListener locationListener) {
+<b class="nc"><i>59</i>&nbsp;        super();</b>
+<b class="nc"><i>60</i>&nbsp;        this.tokenProvider = tokenProvider;</b>
+<b class="nc"><i>61</i>&nbsp;        this.mLocationListener = locationListener;</b>
+<b class="nc"><i>62</i>&nbsp;    }</b>
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    @Override
+<i>65</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="fc"><i>66</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="fc"><i>67</i>&nbsp;        setContentView(R.layout.activity_home);</b>
+<b class="fc"><i>68</i>&nbsp;        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</b>
+<b class="fc"><i>69</i>&nbsp;        setSupportActionBar(toolbar);</b>
+<i>70</i>&nbsp;
+<b class="fc"><i>71</i>&nbsp;        if (tokenProvider == null) {</b>
+<b class="fc"><i>72</i>&nbsp;            tokenProvider = new DefaultTokenProvider(this);</b>
+<i>73</i>&nbsp;        }
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);</b>
+<b class="fc"><i>76</i>&nbsp;        fab.setOnClickListener(new View.OnClickListener() {</b>
+<i>77</i>&nbsp;            @Override
+<i>78</i>&nbsp;            public void onClick(View view) {
+<b class="nc"><i>79</i>&nbsp;                tokenProvider.destroyToken(getApplicationContext());</b>
+<b class="nc"><i>80</i>&nbsp;                tokenProvider.destroyEmail(getApplicationContext());</b>
+<b class="nc"><i>81</i>&nbsp;                Intent nextActivity = new Intent(getApplicationContext(), MainActivity.class);</b>
+<b class="nc"><i>82</i>&nbsp;                startActivity(nextActivity);</b>
+<b class="nc"><i>83</i>&nbsp;            }</b>
+<i>84</i>&nbsp;        });
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;        //getLocationFromAddress(this, &quot;3000 NE 150 st, Miami, FL&quot;);
+<i>87</i>&nbsp;        //distanceBetween(double startLatitude, double startLongitude, double endLatitude, double endLongitude, float[] results)
+<i>88</i>&nbsp;
+<b class="fc"><i>89</i>&nbsp;        LocationManager mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);</b>
+<b class="fc"><i>90</i>&nbsp;        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.M) {</b>
+<b class="nc"><i>91</i>&nbsp;            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &amp;&amp; checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {</b>
+<i>92</i>&nbsp;                // TODO: Consider calling
+<i>93</i>&nbsp;                //    public void requestPermissions(@NonNull String[] permissions, int requestCode)
+<i>94</i>&nbsp;                // here to request the missing permissions, and then overriding
+<i>95</i>&nbsp;                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+<i>96</i>&nbsp;                //                                          int[] grantResults)
+<i>97</i>&nbsp;                // to handle the case where the user grants the permission. See the documentation
+<i>98</i>&nbsp;                // for Activity#requestPermissions for more details.
+<b class="nc"><i>99</i>&nbsp;                return;</b>
+<i>100</i>&nbsp;            }
+<i>101</i>&nbsp;        }
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;        if(mLocationListener == null)</b>
+<b class="fc"><i>104</i>&nbsp;            mLocationListener = new DefaultLocationListener();</b>
+<i>105</i>&nbsp;
+<b class="fc"><i>106</i>&nbsp;        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, mLocationListener);</b>
+<i>107</i>&nbsp;
+<b class="fc"><i>108</i>&nbsp;        mViewPager = (ViewPager) findViewById(R.id.viewpager);</b>
+<b class="fc"><i>109</i>&nbsp;        listPagerAdapter = new ListPagerAdapter(getSupportFragmentManager());</b>
+<b class="fc"><i>110</i>&nbsp;        mViewPager.setAdapter(listPagerAdapter);</b>
+<i>111</i>&nbsp;
+<b class="fc"><i>112</i>&nbsp;        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);</b>
+<b class="fc"><i>113</i>&nbsp;        tabLayout.setupWithViewPager(mViewPager);</b>
+<b class="fc"><i>114</i>&nbsp;    }</b>
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;    public void getLocationFromAddress(Context context, String strAddress) {
+<i>117</i>&nbsp;
+<b class="nc"><i>118</i>&nbsp;        Geocoder coder = new Geocoder(context);</b>
+<i>119</i>&nbsp;        List&lt;Address&gt; address;
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;        try {
+<b class="nc"><i>122</i>&nbsp;            address = coder.getFromLocationName(strAddress, 5);</b>
+<b class="nc"><i>123</i>&nbsp;            if (address == null) {</b>
+<b class="nc"><i>124</i>&nbsp;                return;</b>
+<i>125</i>&nbsp;            }
+<b class="nc"><i>126</i>&nbsp;            Address location = address.get(0);</b>
+<b class="nc"><i>127</i>&nbsp;            Log.d(&quot;HomeActivity&quot;,location.getLatitude() + &quot;&quot;);</b>
+<b class="nc"><i>128</i>&nbsp;            Log.d(&quot;HomeActivity&quot;, location.getLongitude() + &quot;&quot;);</b>
+<i>129</i>&nbsp;
+<b class="nc"><i>130</i>&nbsp;        } catch (Exception ex) {</b>
+<i>131</i>&nbsp;
+<b class="nc"><i>132</i>&nbsp;            ex.printStackTrace();</b>
+<b class="nc"><i>133</i>&nbsp;        }</b>
+<b class="nc"><i>134</i>&nbsp;    }</b>
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;    @Override
+<i>137</i>&nbsp;    public void onBackPressed() {
+<i>138</i>&nbsp;        //Do Nothing
+<b class="fc"><i>139</i>&nbsp;    }</b>
+<i>140</i>&nbsp;
+<i>141</i>&nbsp;    @Override
+<i>142</i>&nbsp;    public boolean onCreateOptionsMenu(Menu menu) {
+<i>143</i>&nbsp;        // Inflate the menu; this adds items to the action bar if it is present.
+<b class="fc"><i>144</i>&nbsp;        getMenuInflater().inflate(R.menu.home, menu);</b>
+<b class="fc"><i>145</i>&nbsp;        return true;</b>
+<i>146</i>&nbsp;    }
+<i>147</i>&nbsp;
+<i>148</i>&nbsp;    @Override
+<i>149</i>&nbsp;    public boolean onOptionsItemSelected(MenuItem item) {
+<i>150</i>&nbsp;        // Handle action bar item clicks here. The action bar will
+<i>151</i>&nbsp;        // automatically handle clicks on the Home/Up button, so long
+<i>152</i>&nbsp;        // as you specify a parent activity in AndroidManifest.xml.
+<b class="fc"><i>153</i>&nbsp;        int id = item.getItemId();</b>
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;        //noinspection SimplifiableIfStatement
+<b class="fc"><i>156</i>&nbsp;        if (id == R.id.action_settings) {</b>
+<b class="nc"><i>157</i>&nbsp;            tokenProvider.destroyToken(this);</b>
+<b class="nc"><i>158</i>&nbsp;            tokenProvider.destroyEmail(this);</b>
+<b class="nc"><i>159</i>&nbsp;            Intent nextActivity = new Intent(getApplicationContext(), MainActivity.class);</b>
+<b class="nc"><i>160</i>&nbsp;            startActivity(nextActivity);</b>
+<b class="nc"><i>161</i>&nbsp;            return true;</b>
+<i>162</i>&nbsp;        }
+<i>163</i>&nbsp;
+<b class="fc"><i>164</i>&nbsp;        return super.onOptionsItemSelected(item);</b>
+<i>165</i>&nbsp;    }
+<i>166</i>&nbsp;
+<i>167</i>&nbsp;    public class ListPagerAdapter extends FragmentPagerAdapter {
+<i>168</i>&nbsp;
+<b class="fc"><i>169</i>&nbsp;        public ListPagerAdapter(FragmentManager fm) {</b>
+<b class="fc"><i>170</i>&nbsp;            super(fm);</b>
+<b class="fc"><i>171</i>&nbsp;        }</b>
+<i>172</i>&nbsp;
+<i>173</i>&nbsp;        @Override
+<i>174</i>&nbsp;        public android.support.v4.app.Fragment getItem(int position) {
+<b class="fc"><i>175</i>&nbsp;            android.support.v4.app.Fragment fragment = new ListFragment();</b>
+<b class="fc"><i>176</i>&nbsp;            Bundle args = new Bundle();</b>
+<i>177</i>&nbsp;            // Our object is just an integer :-P
+<i>178</i>&nbsp;
+<b class="fc"><i>179</i>&nbsp;            if(position == 0) {</b>
+<b class="fc"><i>180</i>&nbsp;                args.putInt(&quot;pintType&quot;, PintType.BLOODDRIVE);</b>
+<i>181</i>&nbsp;            } else {
+<b class="fc"><i>182</i>&nbsp;                args.putInt(&quot;pintType&quot;, PintType.USERNOTIFICATION);</b>
+<i>183</i>&nbsp;            }
+<i>184</i>&nbsp;
+<b class="fc"><i>185</i>&nbsp;            fragment.setArguments(args);</b>
+<b class="fc"><i>186</i>&nbsp;            return fragment;</b>
+<i>187</i>&nbsp;        }
+<i>188</i>&nbsp;
+<i>189</i>&nbsp;        @Override
+<i>190</i>&nbsp;        public int getCount() {
+<b class="fc"><i>191</i>&nbsp;            return 2;</b>
+<i>192</i>&nbsp;        }
+<i>193</i>&nbsp;
+<i>194</i>&nbsp;        @Override
+<i>195</i>&nbsp;        public CharSequence getPageTitle(int position) {
+<b class="fc"><i>196</i>&nbsp;            return tabs[position];</b>
+<i>197</i>&nbsp;        }
+<i>198</i>&nbsp;    }
+<i>199</i>&nbsp;
+<i>200</i>&nbsp;    public static class ListFragment extends android.support.v4.app.Fragment {
+<i>201</i>&nbsp;        ListView pintList;
+<i>202</i>&nbsp;        ArrayList&lt;JSONObject&gt; pintObjects;
+<i>203</i>&nbsp;        Context context;
+<i>204</i>&nbsp;        JSONAdapter jsonAdapter;
+<i>205</i>&nbsp;        IPintAPI pintAPI;
+<i>206</i>&nbsp;        int pintType;
+<i>207</i>&nbsp;
+<i>208</i>&nbsp;        public ListFragment() {
+<b class="fc"><i>209</i>&nbsp;            super();</b>
+<b class="fc"><i>210</i>&nbsp;            this.pintAPI = new DefaultPintAPI();</b>
+<b class="fc"><i>211</i>&nbsp;        }</b>
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;        public void OnAttach(Context context) {
+<b class="nc"><i>214</i>&nbsp;            if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.M) {</b>
+<b class="nc"><i>215</i>&nbsp;                super.onAttach(context);</b>
+<i>216</i>&nbsp;            }
+<b class="nc"><i>217</i>&nbsp;            this.context = context;</b>
+<b class="nc"><i>218</i>&nbsp;        }</b>
+<i>219</i>&nbsp;
+<i>220</i>&nbsp;        public View onCreateView(LayoutInflater inflater,
+<i>221</i>&nbsp;                                 ViewGroup container, Bundle savedInstanceState) {
+<i>222</i>&nbsp;
+<b class="fc"><i>223</i>&nbsp;            View rootView = inflater.inflate(</b>
+<i>224</i>&nbsp;                    R.layout.tab_home, container, false);
+<i>225</i>&nbsp;
+<b class="fc"><i>226</i>&nbsp;            pintList = (ListView) rootView.findViewById(R.id.homeListViewList);</b>
+<b class="fc"><i>227</i>&nbsp;            pintObjects = new ArrayList&lt;JSONObject&gt;();</b>
+<b class="fc"><i>228</i>&nbsp;            Bundle args = getArguments();</b>
+<b class="fc"><i>229</i>&nbsp;            pintType = args.getInt(&quot;pintType&quot;, PintType.BLOODDRIVE);</b>
+<b class="fc"><i>230</i>&nbsp;            jsonAdapter = new JSONAdapter(getContext(), pintObjects, pintType);</b>
+<b class="fc"><i>231</i>&nbsp;            pintList.setAdapter(jsonAdapter);</b>
+<i>232</i>&nbsp;
+<b class="fc"><i>233</i>&nbsp;            pintList.setOnItemClickListener(new AdapterView.OnItemClickListener() {</b>
+<i>234</i>&nbsp;                @Override
+<i>235</i>&nbsp;                public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+<b class="nc"><i>236</i>&nbsp;                    Intent intent = new Intent(getContext(), DetailedActivity.class);</b>
+<b class="nc"><i>237</i>&nbsp;                    intent.putExtra(&quot;json&quot;, pintObjects.get(position).toString());</b>
+<i>238</i>&nbsp;
+<b class="nc"><i>239</i>&nbsp;                    if(pintType == PintType.USERNOTIFICATION) {</b>
+<i>240</i>&nbsp;                        try {
+<b class="nc"><i>241</i>&nbsp;                            intent.putExtra(&quot;notification&quot;, pintObjects.get(position).getLong(&quot;sentTime&quot;));</b>
+<b class="nc"><i>242</i>&nbsp;                        } catch (JSONException e) {</b>
+<b class="nc"><i>243</i>&nbsp;                            e.printStackTrace();</b>
+<b class="nc"><i>244</i>&nbsp;                        }</b>
+<i>245</i>&nbsp;                    }
+<i>246</i>&nbsp;
+<b class="nc"><i>247</i>&nbsp;                    startActivity(intent);</b>
+<b class="nc"><i>248</i>&nbsp;                }</b>
+<i>249</i>&nbsp;            });
+<i>250</i>&nbsp;
+<b class="fc"><i>251</i>&nbsp;            return rootView;</b>
+<i>252</i>&nbsp;        }
+<i>253</i>&nbsp;
+<i>254</i>&nbsp;        public void onStart() {
+<b class="fc"><i>255</i>&nbsp;            super.onStart();</b>
+<i>256</i>&nbsp;
+<b class="fc"><i>257</i>&nbsp;            DefaultTokenProvider defaultTokenProvider = new DefaultTokenProvider(getContext());</b>
+<b class="fc"><i>258</i>&nbsp;            String email = defaultTokenProvider.getEmail(getContext());</b>
+<i>259</i>&nbsp;
+<b class="fc"><i>260</i>&nbsp;            if(pintType == PintType.BLOODDRIVE) {</b>
+<b class="fc"><i>261</i>&nbsp;                pintAPI.GetBloodDrivesByLocation(jsonAdapter, defaultTokenProvider, &quot;Miami&quot;, &quot;FL&quot;);</b>
+<i>262</i>&nbsp;            } else {
+<b class="fc"><i>263</i>&nbsp;                pintAPI.GetUserNotifications(jsonAdapter, defaultTokenProvider);</b>
+<i>264</i>&nbsp;            }
+<i>265</i>&nbsp;
+<b class="fc"><i>266</i>&nbsp;            if(!jsonAdapter.jsonList.isEmpty())</b>
+<b class="nc"><i>267</i>&nbsp;                return;</b>
+<i>268</i>&nbsp;
+<b class="fc"><i>269</i>&nbsp;            pintAPI.execute();</b>
+<b class="fc"><i>270</i>&nbsp;        }</b>
+<i>271</i>&nbsp;    }
+<i>272</i>&nbsp;
+<b class="fc"><i>273</i>&nbsp;    private class DefaultLocationListener implements LocationListener {</b>
+<i>274</i>&nbsp;        @Override
+<i>275</i>&nbsp;        public void onLocationChanged(Location location) {
+<b class="nc"><i>276</i>&nbsp;            latitude = location.getLatitude();</b>
+<b class="nc"><i>277</i>&nbsp;            longitude = location.getLongitude();</b>
+<b class="nc"><i>278</i>&nbsp;            city = &quot;Miami&quot;;</b>
+<b class="nc"><i>279</i>&nbsp;            state = &quot;FL&quot;;</b>
+<b class="nc"><i>280</i>&nbsp;        }</b>
+<i>281</i>&nbsp;
+<i>282</i>&nbsp;        @Override
+<i>283</i>&nbsp;        public void onStatusChanged(String provider, int status, Bundle extras) {
+<i>284</i>&nbsp;
+<b class="nc"><i>285</i>&nbsp;        }</b>
+<i>286</i>&nbsp;
+<i>287</i>&nbsp;        @Override
+<i>288</i>&nbsp;        public void onProviderEnabled(String provider) {
+<i>289</i>&nbsp;
+<b class="nc"><i>290</i>&nbsp;        }</b>
+<i>291</i>&nbsp;
+<i>292</i>&nbsp;        @Override
+<i>293</i>&nbsp;        public void onProviderDisabled(String provider) {
+<i>294</i>&nbsp;
+<b class="nc"><i>295</i>&nbsp;        }</b>
+<i>296</i>&nbsp;    }
+<i>297</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2016-11-21 18:32</div>
+</div>
+</body>
+</html>
