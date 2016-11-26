@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco-android'
+//apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 23
@@ -32,13 +33,18 @@ android {
         free {}
         paid {}
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
-//jacocoAndroidUnitTestReport {
-//    excludes += ['**/PintNetworking/*', '**/DetailedActivity.java',
-//        '**/LoginActivity.java', '**/MainActivity.java', '**/PintRequest.java',
-//        '**/PintType.java']
-//}
+
+jacocoAndroidUnitTestReport {
+    excludes += ['**/PintNetworking/*', '**/DetailedActivity.*',
+        '**/LoginActivity.*', '**/MainActivity.*', '**/PintRequest.*',
+        '**/PintType.*', '**/DetailedActivity*']
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

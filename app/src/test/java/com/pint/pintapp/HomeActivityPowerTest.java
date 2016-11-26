@@ -16,7 +16,7 @@ import java.util.List;
  * Houses tests that try to use PowerMock
  */
 @PrepareForTest(HomeActivity.class)
-public class HomeActivityPowerTest extends RobolectricTest {
+public abstract class HomeActivityPowerTest extends RobolectricTest {
 
 //    @Test
 //    public void testGetLocationFromAddress() throws Exception {

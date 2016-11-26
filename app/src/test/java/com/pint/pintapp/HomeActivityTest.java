@@ -235,12 +235,29 @@ public class HomeActivityTest {
     }
 
     @Test
+    public void testListFragmentLifecycle() {
+        HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
+
+        // go thru fragment to lifecycle to start it
+        Bundle bundle = new Bundle();
+        bundle.putInt("pintType", PintType.BLOODDRIVE);
+        fragment.setArguments(bundle);
+        fragment.onCreate(bundle);
+        SupportFragmentTestUtil.startVisibleFragment(fragment);
+    }
+
+    @Test
     public void testListFragmentOnAttachWithSdkNotEqual23() {
         HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
-        Context mockContext = new MockContext();
 
-        fragment.OnAttach(mockContext);
-        assertEquals(mockContext, fragment.getActivity());
+        // go thru fragment to lifecycle to start it
+        Bundle bundle = new Bundle();
+        bundle.putInt("pintType", PintType.BLOODDRIVE);
+        fragment.setArguments(bundle);
+        homeActivity.getSupportFragmentManager().beginTransaction()
+                .add(fragment, null).commit();
+
+        assertEquals(homeActivity, fragment.getContext());
     }
 
     @Test
@@ -254,10 +271,16 @@ public class HomeActivityTest {
         }
 
         HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
-        Context mockContext = new MockContext();
 
-        fragment.OnAttach(mockContext);
-        assertEquals(mockContext, fragment.getActivity());
+        // go thru fragment to lifecycle to start it
+        Bundle bundle = new Bundle();
+        bundle.putInt("pintType", PintType.BLOODDRIVE);
+        fragment.setArguments(bundle);
+        homeActivity.getSupportFragmentManager().beginTransaction()
+                    .add(fragment, null).commit();
+        fragment.OnAttach(homeActivity); // uses dead code???
+
+        assertEquals(homeActivity, fragment.getContext());
     }
 
     @Test
@@ -318,7 +341,6 @@ public class HomeActivityTest {
 
         // go thru fragment to lifecycle to start it
         fragment.onAttach(context);
-        fragment.OnAttach(context);
         Bundle bundle = new Bundle();
         bundle.putInt("pintType", PintType.BLOODDRIVE);
         fragment.setArguments(bundle);
