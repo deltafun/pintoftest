@@ -481,19 +481,19 @@ public class HomeActivityTest {
      * @throws Exception
      */
     private static Object getDefaultLocationListener(HomeActivity outerObject) {
-        Constructor<?> constructor = null;
+        Object defaultLocationListener = null;
         try {
             Class<?> innerClass = Class
                     .forName("pintapp.pint.com.pint.HomeActivity$DefaultLocationListener");
-            constructor = innerClass
+            Constructor<?> constructor = innerClass
                     .getDeclaredConstructor(HomeActivity.class);
             constructor.setAccessible(true);
-            return constructor.newInstance(outerObject);
+            defaultLocationListener = constructor.newInstance(outerObject);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        assertNotNull(constructor);
-        return constructor;
+        assertNotNull(defaultLocationListener);
+        return defaultLocationListener;
     }
 
     /**
