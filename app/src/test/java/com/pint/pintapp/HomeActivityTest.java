@@ -306,6 +306,63 @@ public class HomeActivityTest {
         assertEquals(shadowIntent.getIntentClass(), DetailedActivity.class);
     }
 
+    @Test
+    public void ListFragmentOnCreateViewShouldInitializeListenerThatStartedDetailedActivityIntentAfterPuttingExtra() throws Exception {
+        HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
+
+        long expectedNotification = 0;
+
+        // mocks
+        View mockView = mock(View.class);
+        JSONObject mockJSONObject = mock(JSONObject.class);
+
+        // go thru fragment to lifecycle to start it
+        fragment.onAttach(context);
+        fragment.OnAttach(context);
+        Bundle bundle = new Bundle();
+        bundle.putInt("pintType", PintType.BLOODDRIVE);
+        fragment.setArguments(bundle);
+        fragment.onCreate(bundle);
+        SupportFragmentTestUtil.startVisibleFragment(fragment);
+
+        // gain access to private `pintList` member variable
+        Field pintListField = fragment.getClass().getDeclaredField("pintList");
+        pintListField.setAccessible(true);
+        // gain access to private `pintObjects` member variable
+        Field pintObjectsField = fragment.getClass().getDeclaredField("pintObjects");
+        pintObjectsField.setAccessible(true);
+        // gain access to private `pintType` member variable
+        Field pintTypeField = fragment.getClass().getDeclaredField("pintType");
+        pintTypeField.setAccessible(true);
+
+        // reassign pintType so it will execute if branch
+        pintTypeField.setInt(fragment, PintType.USERNOTIFICATION);
+
+        // get pintObjects. make pintObjects non-empty
+        ArrayList<JSONObject> pintObjects =
+                (ArrayList<JSONObject>) pintObjectsField.get(fragment);
+        pintObjects.add(mockJSONObject);
+
+        // get pintList so we can get method held in anonymous inner class
+        ListView pintList = (ListView) pintListField.get(fragment);
+        AdapterView.OnItemClickListener onItemClickListener =
+                pintList.getOnItemClickListener();
+
+        // Act
+        onItemClickListener.onItemClick(pintList, mockView, 0, 0);
+
+        // setup verfication intent was started
+        ShadowActivity shadowActivity = shadowOf(homeActivity);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        ShadowIntent shadowIntent = shadowOf(startedIntent);
+
+        long actualNotification = startedIntent.getLongExtra("notification", -1);
+
+        // Assert
+        assertEquals(shadowIntent.getIntentClass(), DetailedActivity.class);
+        assertEquals(expectedNotification, actualNotification);
+    }
+
     // DefaultLocationListener *************************************************
 
     @Test

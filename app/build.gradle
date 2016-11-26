@@ -1,15 +1,5 @@
-//buildscript {
-//    repositories {
-//        jcenter()
-//    }
-//
-//    dependencies {
-//        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
-//    }
-//}
-
 apply plugin: 'com.android.application'
-//apply plugin: 'jacoco-android'
+apply plugin: 'jacoco-android'
 
 android {
     compileSdkVersion 23
@@ -43,6 +33,12 @@ android {
         paid {}
     }
 }
+
+//jacocoAndroidUnitTestReport {
+//    excludes += ['**/PintNetworking/*', '**/DetailedActivity.java',
+//        '**/LoginActivity.java', '**/MainActivity.java', '**/PintRequest.java',
+//        '**/PintType.java']
+//}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
