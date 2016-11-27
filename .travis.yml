@@ -8,6 +8,6 @@ android:
   - android-23
   - extra-android-m2repository
 script:
-  - ./gradlew build jacocoTestReport assembleAndroidTest --info
+  - ./gradlew build jacocoTestReport assembleAndroidTest
 after_success:
   - bash <(curl -s https://codecov.io/bash)
