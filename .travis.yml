@@ -10,4 +10,4 @@ android:
 script:
   - ./gradlew build jacocoTestReport assembleAndroidTest
 after_success:
- - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)

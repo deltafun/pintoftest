@@ -283,272 +283,273 @@ public class HomeActivityTest {
         assertEquals(homeActivity, fragment.getContext());
     }
 
-    @Test
-    public void ListFragmentOnCreateViewShouldInitializeListenerThatStartedDetailedActivityIntent() throws Exception {
-        HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
-
-        // mocks
-        View mockView = mock(View.class);
-        JSONObject mockJSONObject = mock(JSONObject.class);
-
-        // go thru fragment to lifecycle to start it
-        fragment.onAttach(context);
-        fragment.OnAttach(context);
-        Bundle bundle = new Bundle();
-        bundle.putInt("pintType", PintType.BLOODDRIVE);
-        fragment.setArguments(bundle);
-        fragment.onCreate(bundle);
-        SupportFragmentTestUtil.startVisibleFragment(fragment);
-
-        // gain access to private `pintList` member variable
-        Field pintListField = fragment.getClass().getDeclaredField("pintList");
-        pintListField.setAccessible(true);
-        // gain access to private `pintObjects` member variable
-        Field pintObjectsField = fragment.getClass().getDeclaredField("pintObjects");
-        pintObjectsField.setAccessible(true);
-
-        // get pintObjects. make pintObjects non-empty
-        ArrayList<JSONObject> pintObjects =
-                (ArrayList<JSONObject>) pintObjectsField.get(fragment);
-        pintObjects.add(mockJSONObject);
-
-        // get pintList so we can get method held in anonymous inner class
-        ListView pintList = (ListView) pintListField.get(fragment);
-        AdapterView.OnItemClickListener onItemClickListener =
-                pintList.getOnItemClickListener();
-
-        // Act
-        onItemClickListener.onItemClick(pintList, mockView, 0, 0);
-
-        // setup verfication intent was started
-        ShadowActivity shadowActivity = shadowOf(homeActivity);
-        Intent startedIntent = shadowActivity.getNextStartedActivity();
-        ShadowIntent shadowIntent = shadowOf(startedIntent);
-
-        // Assert
-        assertEquals(shadowIntent.getIntentClass(), DetailedActivity.class);
-    }
-
-    @Test
-    public void ListFragmentOnCreateViewShouldInitializeListenerThatStartedDetailedActivityIntentAfterPuttingExtra() throws Exception {
-        HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
-
-        long expectedNotification = 0;
-
-        // mocks
-        View mockView = mock(View.class);
-        JSONObject mockJSONObject = mock(JSONObject.class);
-
-        // go thru fragment to lifecycle to start it
-        fragment.onAttach(context);
-        Bundle bundle = new Bundle();
-        bundle.putInt("pintType", PintType.BLOODDRIVE);
-        fragment.setArguments(bundle);
-        fragment.onCreate(bundle);
-        SupportFragmentTestUtil.startVisibleFragment(fragment);
-
-        // gain access to private `pintList` member variable
-        Field pintListField = fragment.getClass().getDeclaredField("pintList");
-        pintListField.setAccessible(true);
-        // gain access to private `pintObjects` member variable
-        Field pintObjectsField = fragment.getClass().getDeclaredField("pintObjects");
-        pintObjectsField.setAccessible(true);
-        // gain access to private `pintType` member variable
-        Field pintTypeField = fragment.getClass().getDeclaredField("pintType");
-        pintTypeField.setAccessible(true);
-
-        // reassign pintType so it will execute if branch
-        pintTypeField.setInt(fragment, PintType.USERNOTIFICATION);
-
-        // get pintObjects. make pintObjects non-empty
-        ArrayList<JSONObject> pintObjects =
-                (ArrayList<JSONObject>) pintObjectsField.get(fragment);
-        pintObjects.add(mockJSONObject);
-
-        // get pintList so we can get method held in anonymous inner class
-        ListView pintList = (ListView) pintListField.get(fragment);
-        AdapterView.OnItemClickListener onItemClickListener =
-                pintList.getOnItemClickListener();
-
-        // Act
-        onItemClickListener.onItemClick(pintList, mockView, 0, 0);
-
-        // setup verfication intent was started
-        ShadowActivity shadowActivity = shadowOf(homeActivity);
-        Intent startedIntent = shadowActivity.getNextStartedActivity();
-        ShadowIntent shadowIntent = shadowOf(startedIntent);
-
-        long actualNotification = startedIntent.getLongExtra("notification", -1);
-
-        // Assert
-        assertEquals(shadowIntent.getIntentClass(), DetailedActivity.class);
-        assertEquals(expectedNotification, actualNotification);
-    }
+//    @Test
+//    public void ListFragmentOnCreateViewShouldInitializeListenerThatStartedDetailedActivityIntent() throws Exception {
+//        HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
+//
+//        // mocks
+//        View mockView = mock(View.class);
+//        JSONObject mockJSONObject = mock(JSONObject.class);
+//
+//        // go thru fragment to lifecycle to start it
+//        fragment.onAttach(context);
+//        fragment.OnAttach(context);
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("pintType", PintType.BLOODDRIVE);
+//        fragment.setArguments(bundle);
+//        fragment.onCreate(bundle);
+//        SupportFragmentTestUtil.startVisibleFragment(fragment);
+//
+//        // gain access to private `pintList` member variable
+//        Field pintListField = fragment.getClass().getDeclaredField("pintList");
+//        pintListField.setAccessible(true);
+//        // gain access to private `pintObjects` member variable
+//        Field pintObjectsField = fragment.getClass().getDeclaredField("pintObjects");
+//        pintObjectsField.setAccessible(true);
+//
+//        // get pintObjects. make pintObjects non-empty
+//        ArrayList<JSONObject> pintObjects =
+//                (ArrayList<JSONObject>) pintObjectsField.get(fragment);
+//        pintObjects.add(mockJSONObject);
+//
+//        // get pintList so we can get method held in anonymous inner class
+//        ListView pintList = (ListView) pintListField.get(fragment);
+//        AdapterView.OnItemClickListener onItemClickListener =
+//                pintList.getOnItemClickListener();
+//
+//        // Act
+//        onItemClickListener.onItemClick(pintList, mockView, 0, 0);
+//
+//        // setup verfication intent was started
+//        ShadowActivity shadowActivity = shadowOf(homeActivity);
+//        Intent startedIntent = shadowActivity.getNextStartedActivity();
+//        ShadowIntent shadowIntent = shadowOf(startedIntent);
+//
+//        // Assert
+//        assertEquals(shadowIntent.getIntentClass(), DetailedActivity.class);
+//    }
+//
+//    @Test
+//    public void ListFragmentOnCreateViewShouldInitializeListenerThatStartedDetailedActivityIntentAfterPuttingExtra() throws Exception {
+//        HomeActivity.ListFragment fragment = new HomeActivity.ListFragment();
+//
+//        long expectedNotification = 0;
+//
+//        // mocks
+//        View mockView = mock(View.class);
+//        JSONObject mockJSONObject = mock(JSONObject.class);
+//
+//        // go thru fragment to lifecycle to start it
+//        fragment.onAttach(context);
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("pintType", PintType.BLOODDRIVE);
+//        fragment.setArguments(bundle);
+//        fragment.onCreate(bundle);
+//        SupportFragmentTestUtil.startVisibleFragment(fragment);
+//
+//        // gain access to private `pintList` member variable
+//        Field pintListField = fragment.getClass().getDeclaredField("pintList");
+//        pintListField.setAccessible(true);
+//        // gain access to private `pintObjects` member variable
+//        Field pintObjectsField = fragment.getClass().getDeclaredField("pintObjects");
+//        pintObjectsField.setAccessible(true);
+//        // gain access to private `pintType` member variable
+//        Field pintTypeField = fragment.getClass().getDeclaredField("pintType");
+//        pintTypeField.setAccessible(true);
+//
+//        // reassign pintType so it will execute if branch
+//        pintTypeField.setInt(fragment, PintType.USERNOTIFICATION);
+//
+//        // get pintObjects. make pintObjects non-empty
+//        ArrayList<JSONObject> pintObjects =
+//                (ArrayList<JSONObject>) pintObjectsField.get(fragment);
+//        pintObjects.add(mockJSONObject);
+//
+//        // get pintList so we can get method held in anonymous inner class
+//        ListView pintList = (ListView) pintListField.get(fragment);
+//        AdapterView.OnItemClickListener onItemClickListener =
+//                pintList.getOnItemClickListener();
+//
+//        // Act
+//        onItemClickListener.onItemClick(pintList, mockView, 0, 0);
+//
+//        // setup verfication intent was started
+//        ShadowActivity shadowActivity = shadowOf(homeActivity);
+//        Intent startedIntent = shadowActivity.getNextStartedActivity();
+//        ShadowIntent shadowIntent = shadowOf(startedIntent);
+//
+//        long actualNotification = startedIntent.getLongExtra("notification", -1);
+//
+//        // Assert
+//        assertEquals(shadowIntent.getIntentClass(), DetailedActivity.class);
+//        assertEquals(expectedNotification, actualNotification);
+//    }
 
     // DefaultLocationListener *************************************************
-
-    @Test
-    public void DefaultLocationListenerShouldCreateSuccessfully() throws Exception {
-        HomeActivity activity = new HomeActivity();
-        Object defaultLocationListener = getDefaultLocationListener(activity);
-        assertNotNull(defaultLocationListener);
-    }
-
-    @Test
-    public void DefaultLocationListenerOnLocationChangedShouldChangeCoordinates() throws Exception {
-        HomeActivity activity = new HomeActivity();
-        Object defaultLocationListener = getDefaultLocationListener(activity);
-        Location location = new Location("GPS");
-
-        double expectedLatitude = 25.7617;
-        double expectedLongitude = 80.1918;
-        location.setLatitude(expectedLatitude);
-        location.setLongitude(expectedLongitude);
-
-        // get private method via reflection (http://stackoverflow.com/q/34571)
-        String methodName = "onLocationChanged";
-        Method method = defaultLocationListener.getClass()
-                        .getDeclaredMethod(methodName, Location.class);
-        method.setAccessible(true);
-
-        method.invoke(defaultLocationListener, location);
-
-        // get private fields for HomeActivity class
-        Field latitude = activity.getClass().getDeclaredField("latitude");
-        Field longitude = activity.getClass().getDeclaredField("longitude");
-        latitude.setAccessible(true);
-        longitude.setAccessible(true);
-
-        // get values from fields
-        double actualLatitude = latitude.getDouble(activity);
-        double actualLongitude = longitude.getDouble(activity);
-
-        // Assert
-        assertEquals(expectedLatitude, actualLatitude);
-        assertEquals(expectedLongitude, actualLongitude);
-    }
-
-    @Test
-    public void DefaultLocationListenerOnLocationChangedShouldChangeCity() throws Exception {
-        HomeActivity activity = new HomeActivity();
-        Object defaultLocationListener = getDefaultLocationListener(activity);
-
-        // expected output
-        String expectedCity = "Miami";
-        String expectedState = "FL";
-
-        // arrange mock location behavior
-        Location location = mock(Location.class);
-        when(location.getLatitude()).thenReturn(25.7617);
-        when(location.getLongitude()).thenReturn(80.1918);
-
-        // get private method via reflection (http://stackoverflow.com/q/34571)
-        String methodName = "onLocationChanged";
-        Method method = defaultLocationListener.getClass()
-                .getDeclaredMethod(methodName, Location.class);
-        method.setAccessible(true);
-
-        method.invoke(defaultLocationListener, location);
-
-        // get private fields for HomeActivity class
-        Field city = activity.getClass().getDeclaredField("city");
-        Field state = activity.getClass().getDeclaredField("state");
-        city.setAccessible(true);
-        state.setAccessible(true);
-
-        // get values from fields
-        String actualCity = (String) city.get(activity);
-        String actualState = (String) state.get(activity);
-
-        // Assert
-        assertEquals(expectedCity, actualCity);
-        assertEquals(expectedState, actualState);
-    }
-
-    @Test
-    public void DefaultLocationListenerShouldHaveOnStatusChanged() {
-        HomeActivity activity = new HomeActivity();
-        Object defaultLocationListener = getDefaultLocationListener(activity);
-
-        String methodName = "onStatusChanged";
-        Bundle mockBundle = mock(Bundle.class);
-
-        try {
-            Method method = defaultLocationListener.getClass()
-                    .getDeclaredMethod(methodName, String.class, int.class, Bundle.class);
-            method.setAccessible(true);
-
-            try {
-                method.invoke(defaultLocationListener, "", 0, mockBundle);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                fail();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-                fail();
-            } // end inner try-catch
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-            fail();
-        } // end try-catch
-        return; // success
-    }
-
-    @Test
-    public void DefaultLocationListenerShouldHaveOnProviderEnabled() {
-        HomeActivity activity = new HomeActivity();
-        Object defaultLocationListener = getDefaultLocationListener(activity);
-
-        String methodName = "onProviderEnabled";
-
-        try {
-            Method method = defaultLocationListener.getClass()
-                    .getDeclaredMethod(methodName, String.class);
-            method.setAccessible(true);
-
-            try {
-                method.invoke(defaultLocationListener, "");
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                fail();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-                fail();
-            } // end inner try-catch
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-            fail();
-        } // end try-catch
-        return; // success
-    }
-
-    @Test
-    public void DefaultLocationListenerShouldHaveOnProviderDisabled() {
-        HomeActivity activity = new HomeActivity();
-        Object defaultLocationListener = getDefaultLocationListener(activity);
-
-        String methodName = "onProviderDisabled";
-
-        try {
-            Method method = defaultLocationListener.getClass()
-                    .getDeclaredMethod(methodName, String.class);
-            method.setAccessible(true);
-
-            try {
-                method.invoke(defaultLocationListener, "");
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                fail();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-                fail();
-            } // end inner try-catch
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-            fail();
-        } // end try-catch
-        return; // success
-    }
+//
+//    @Test
+//    public void DefaultLocationListenerShouldCreateSuccessfully() throws Exception {
+//        HomeActivity activity = new HomeActivity();
+//
+//        Object defaultLocationListener = getDefaultLocationListener(activity);
+//        assertNotNull(defaultLocationListener);
+//    }
+//
+//    @Test
+//    public void DefaultLocationListenerOnLocationChangedShouldChangeCoordinates() throws Exception {
+//        HomeActivity activity = new HomeActivity();
+//        Object defaultLocationListener = getDefaultLocationListener(activity);
+//        Location location = new Location("GPS");
+//
+//        double expectedLatitude = 25.7617;
+//        double expectedLongitude = 80.1918;
+//        location.setLatitude(expectedLatitude);
+//        location.setLongitude(expectedLongitude);
+//
+//        // get private method via reflection (http://stackoverflow.com/q/34571)
+//        String methodName = "onLocationChanged";
+//        Method method = defaultLocationListener.getClass()
+//                        .getDeclaredMethod(methodName, Location.class);
+//        method.setAccessible(true);
+//
+//        method.invoke(defaultLocationListener, location);
+//
+//        // get private fields for HomeActivity class
+//        Field latitude = activity.getClass().getDeclaredField("latitude");
+//        Field longitude = activity.getClass().getDeclaredField("longitude");
+//        latitude.setAccessible(true);
+//        longitude.setAccessible(true);
+//
+//        // get values from fields
+//        double actualLatitude = latitude.getDouble(activity);
+//        double actualLongitude = longitude.getDouble(activity);
+//
+//        // Assert
+//        assertEquals(expectedLatitude, actualLatitude);
+//        assertEquals(expectedLongitude, actualLongitude);
+//    }
+//
+//    @Test
+//    public void DefaultLocationListenerOnLocationChangedShouldChangeCity() throws Exception {
+//        HomeActivity activity = new HomeActivity();
+//        Object defaultLocationListener = getDefaultLocationListener(activity);
+//
+//        // expected output
+//        String expectedCity = "Miami";
+//        String expectedState = "FL";
+//
+//        // arrange mock location behavior
+//        Location location = mock(Location.class);
+//        when(location.getLatitude()).thenReturn(25.7617);
+//        when(location.getLongitude()).thenReturn(80.1918);
+//
+//        // get private method via reflection (http://stackoverflow.com/q/34571)
+//        String methodName = "onLocationChanged";
+//        Method method = defaultLocationListener.getClass()
+//                .getDeclaredMethod(methodName, Location.class);
+//        method.setAccessible(true);
+//
+//        method.invoke(defaultLocationListener, location);
+//
+//        // get private fields for HomeActivity class
+//        Field city = activity.getClass().getDeclaredField("city");
+//        Field state = activity.getClass().getDeclaredField("state");
+//        city.setAccessible(true);
+//        state.setAccessible(true);
+//
+//        // get values from fields
+//        String actualCity = (String) city.get(activity);
+//        String actualState = (String) state.get(activity);
+//
+//        // Assert
+//        assertEquals(expectedCity, actualCity);
+//        assertEquals(expectedState, actualState);
+//    }
+//
+//    @Test
+//    public void DefaultLocationListenerShouldHaveOnStatusChanged() {
+//        HomeActivity activity = new HomeActivity();
+//        Object defaultLocationListener = getDefaultLocationListener(activity);
+//
+//        String methodName = "onStatusChanged";
+//        Bundle mockBundle = mock(Bundle.class);
+//
+//        try {
+//            Method method = defaultLocationListener.getClass()
+//                    .getDeclaredMethod(methodName, String.class, int.class, Bundle.class);
+//            method.setAccessible(true);
+//
+//            try {
+//                method.invoke(defaultLocationListener, "", 0, mockBundle);
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//                fail();
+//            } catch (InvocationTargetException e) {
+//                e.printStackTrace();
+//                fail();
+//            } // end inner try-catch
+//        } catch (NoSuchMethodException e) {
+//            e.printStackTrace();
+//            fail();
+//        } // end try-catch
+//        return; // success
+//    }
+//
+//    @Test
+//    public void DefaultLocationListenerShouldHaveOnProviderEnabled() {
+//        HomeActivity activity = new HomeActivity();
+//        Object defaultLocationListener = getDefaultLocationListener(activity);
+//
+//        String methodName = "onProviderEnabled";
+//
+//        try {
+//            Method method = defaultLocationListener.getClass()
+//                    .getDeclaredMethod(methodName, String.class);
+//            method.setAccessible(true);
+//
+//            try {
+//                method.invoke(defaultLocationListener, "");
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//                fail();
+//            } catch (InvocationTargetException e) {
+//                e.printStackTrace();
+//                fail();
+//            } // end inner try-catch
+//        } catch (NoSuchMethodException e) {
+//            e.printStackTrace();
+//            fail();
+//        } // end try-catch
+//        return; // success
+//    }
+//
+//    @Test
+//    public void DefaultLocationListenerShouldHaveOnProviderDisabled() {
+//        HomeActivity activity = new HomeActivity();
+//        Object defaultLocationListener = getDefaultLocationListener(activity);
+//
+//        String methodName = "onProviderDisabled";
+//
+//        try {
+//            Method method = defaultLocationListener.getClass()
+//                    .getDeclaredMethod(methodName, String.class);
+//            method.setAccessible(true);
+//
+//            try {
+//                method.invoke(defaultLocationListener, "");
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//                fail();
+//            } catch (InvocationTargetException e) {
+//                e.printStackTrace();
+//                fail();
+//            } // end inner try-catch
+//        } catch (NoSuchMethodException e) {
+//            e.printStackTrace();
+//            fail();
+//        } // end try-catch
+//        return; // success
+//    }
 
     // Misc *******************************************************************
 
